@@ -17,7 +17,7 @@ gameLoop game
         putStrLn (display game)
         putStrLn "Take a coin:"
         coin <- getLine
-        if inRange (1, length game) (read coin) && game !! (read coin)
+        if inRange (1, length game) (read coin) && game !! (read coin - 1)
             then gameLoop (turn game (read coin - 1))
             else do
                 putStrLn "Coin not valid."
