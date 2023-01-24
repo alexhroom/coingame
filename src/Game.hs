@@ -1,4 +1,8 @@
-module Game where
+module Game 
+    ( startGame
+    , turn
+    , display
+    ) where
 
 import Control.Lens
 

@@ -1,3 +1,7 @@
+module State 
+    ( GameState
+    , gameToGameState
+    ) where
 
 {-Defining GameState type and operation-}
 data GameState = Coins Int | Gap Int deriving (Show, Eq)
@@ -6,6 +10,7 @@ instance Ord GameState where
     compare (Coins x) (Coins y) = compare x y
     compare (Gap x) (Gap y) = compare x y
     compare (Coins x) (Gap y) = compare x y
+    compare (Gap x) (Coins y) = compare x y
 
 sameType :: GameState -> GameState -> Bool
 sameType (Coins _) (Coins _) = True

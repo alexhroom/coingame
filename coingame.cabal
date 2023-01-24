@@ -25,6 +25,7 @@ source-repository head
 library
   exposed-modules:
       Game
+      State
   other-modules:
       Paths_coingame
   hs-source-dirs:
@@ -36,7 +37,7 @@ library
   default-language: Haskell2010
 
 executable coingame-exe
-  main-is: Main.hs
+  main-is: Main.lhs
   other-modules:
       Paths_coingame
   hs-source-dirs:
