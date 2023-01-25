@@ -3,10 +3,12 @@ module Main (main) where
 import Game
 import Players
 import Data.Ix
-import System.Exit (exitWith)
+import System.Exit (exitWith, ExitCode(ExitSuccess))
+import System.IO (hSetBuffering, stdin, BufferMode(LineBuffering))
 
 main :: IO ()
 main = do
+    hSetBuffering stdin LineBuffering
     putStrLn "What size game?"
     gamesize <- getLine
     putStrLn "1 or 2 players?"
@@ -56,5 +58,5 @@ checkWin :: [Bool] -> String -> IO ()
 checkWin game player
     | all (== False) game = do 
         putStrLn ("All coins gone! " ++ player ++ " wins!")
-        exitWith 0
+        exitWith ExitSuccess
     | otherwise = return()
