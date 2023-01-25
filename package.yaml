@@ -39,7 +39,7 @@ library:
 
 executables:
   coingame-exe:
-    main:                Main.lhs
+    main:                Main.hs
     source-dirs:         app
     ghc-options:
     - -threaded

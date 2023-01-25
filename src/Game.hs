@@ -4,7 +4,7 @@ module Game
     , display
     ) where
 
-import Control.Lens
+import Control.Lens ( (.~), element )
 
 -- Initialises a game.
 startGame :: Int -> [Bool]
@@ -14,12 +14,12 @@ startGame n = replicate n True
 turn :: [Bool] -> Int -> [Bool]
 turn game x
     | x < 0 = game
-    | x >= (length game) = game
-    | game !! x == True = (element (x-1) .~ False) ((element x .~ False) ((element (x+1) .~ False) game))
+    | x >= length game = game
+    | game !! x = (element (x-1) .~ False) ((element x .~ False) ((element (x+1) .~ False) game))
     | otherwise = game
 
 -- displays coins
 display :: [Bool] -> [Char]
-display game = map boolAsCoin game
+display = map boolAsCoin
     where boolAsCoin True  = '@'
           boolAsCoin False = '_'
